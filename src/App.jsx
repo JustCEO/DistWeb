@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Solutions from './pages/Solutions';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import Vendors from './pages/Vendors';
 import ServiceDetail from './pages/ServiceDetail';
 import './index.css';
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/solutions" element={<Solutions />} />
+          <Route path="/vendors" element={<Vendors />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/service/:serviceId" element={<ServiceDetail />} />
           <Route path="/contacts" element={<Contact />} />

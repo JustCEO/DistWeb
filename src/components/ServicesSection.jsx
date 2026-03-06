@@ -44,8 +44,8 @@ const ServicesSection = () => {
         <section className="services-section" id="solutions">
             <div className="container">
                 <AnimatedSection className="section-header">
-                    <h2 className="section-title text-gradient">Our Solutions</h2>
-                    <p className="section-subtitle">Distributing global brands & delivering custom integration.</p>
+                    <h2 className="section-title text-gradient" data-i18n="services_title">Our Solutions</h2>
+                    <p className="section-subtitle" data-i18n="services_subtitle">Distributing global brands & delivering custom integration.</p>
                 </AnimatedSection>
 
                 <div className="services-grid">

@@ -4,6 +4,13 @@ import AnimatedSection from './AnimatedSection';
 import './HeroSection.css';
 import heroBg from '../assets/images/hero-bg.png';
 
+const stats = [
+    { number: '50+', label: 'Clients', i18nLabel: 'hero_stat_clients' },
+    { number: '5', label: 'Years on the Market', i18nLabel: 'hero_stat_years' },
+    { number: '2', label: 'Countries', i18nLabel: 'hero_stat_countries' },
+    { number: '20+', label: 'Vendor Partners', i18nLabel: 'hero_stat_vendors' },
+];
+
 const HeroSection = () => {
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
@@ -18,18 +25,30 @@ const HeroSection = () => {
             <div className="container hero-content">
                 <AnimatedSection className="hero-text-content">
                     <h1 className="hero-title">
-                        <span className="block-reveal">Secure. Automate.</span>
+                        <span className="block-reveal" data-i18n="hero_line1">Secure. Automate.</span>
                         <br />
-                        <span className="text-gradient block-reveal delay-1">Innovate.</span>
+                        <span className="text-gradient block-reveal delay-1" data-i18n="hero_line2">Innovate.</span>
                     </h1>
-                    <p className="hero-subtitle block-reveal delay-2">
+                    <p className="hero-subtitle block-reveal delay-2" data-i18n="hero_subtitle">
                         DISTECHSOL is your partner in Security, Automation, and IT Infrastructure.
                         Official distributor of global brands, serving Azerbaijan and the UAE since 2020.
                     </p>
                     <div className="hero-actions block-reveal delay-3">
-                        <a href="#services" className="btn btn-hero">Explore Solutions</a>
+                        <a href="#services" className="btn btn-hero" data-i18n="hero_cta">Explore Solutions</a>
                     </div>
                 </AnimatedSection>
+
+                <div className="hero-stats block-reveal delay-3">
+                    {stats.map((stat, index) => (
+                        <React.Fragment key={index}>
+                            {index > 0 && <span className="stat-divider"></span>}
+                            <div className="hero-stat-item">
+                                <span className="hero-stat-number">{stat.number}</span>
+                                <span className="hero-stat-label" data-i18n={stat.i18nLabel}>{stat.label}</span>
+                            </div>
+                        </React.Fragment>
+                    ))}
+                </div>
             </div>
         </section>
     );
