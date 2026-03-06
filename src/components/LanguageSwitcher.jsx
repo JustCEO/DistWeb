@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { applyTranslations, getSavedLanguage, saveLanguage } from '../translations';
+import React, { useState, useRef, useEffect } from 'react';
+import { useTranslation } from '../contexts/LanguageContext';
 import './LanguageSwitcher.css';
 
 const languages = [
@@ -21,46 +21,19 @@ const languages = [
 ];
 
 const LanguageSwitcher = () => {
-    const savedCode = getSavedLanguage();
-    const initialLang = languages.find(l => l.code === savedCode) || languages[0];
+    const { language, changeLanguage } = useTranslation();
+    const currentLang = languages.find(l => l.code === language) || languages[0];
 
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedLang, setSelectedLang] = useState(initialLang);
     const dropdownRef = useRef(null);
-
-    const applyLang = useCallback((langCode) => {
-        // Small delay to let React finish rendering DOM updates
-        requestAnimationFrame(() => {
-            applyTranslations(langCode);
-        });
-    }, []);
-
-    // Apply translations on mount and on route change (via MutationObserver)
-    useEffect(() => {
-        applyLang(selectedLang.code);
-
-        const observer = new MutationObserver(() => {
-            applyLang(selectedLang.code);
-        });
-
-        observer.observe(document.getElementById('root'), {
-            childList: true,
-            subtree: true
-        });
-
-        return () => observer.disconnect();
-    }, [selectedLang.code, applyLang]);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
     const handleSelect = (lang) => {
-        setSelectedLang(lang);
-        saveLanguage(lang.code);
+        changeLanguage(lang.code);
         setIsOpen(false);
-        applyLang(lang.code);
     };
 
-    // Close dropdown when clicking outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -74,8 +47,8 @@ const LanguageSwitcher = () => {
     return (
         <div className="language-switcher" ref={dropdownRef}>
             <button className="lang-btn" onClick={toggleDropdown} type="button">
-                <span className="lang-flag">{selectedLang.flag}</span>
-                <span className="lang-code">{selectedLang.code}</span>
+                <span className="lang-flag">{currentLang.flag}</span>
+                <span className="lang-code">{currentLang.code}</span>
                 <span className={`arrow ${isOpen ? 'up' : 'down'}`}>▼</span>
             </button>
 
@@ -84,7 +57,7 @@ const LanguageSwitcher = () => {
                     {languages.map((lang) => (
                         <div
                             key={lang.code}
-                            className={`lang-option ${selectedLang.code === lang.code ? 'active' : ''}`}
+                            className={`lang-option ${language === lang.code ? 'active' : ''}`}
                             onClick={() => handleSelect(lang)}
                         >
                             <span className="lang-flag">{lang.flag}</span>

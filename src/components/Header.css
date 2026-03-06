@@ -47,6 +47,38 @@
     width: auto;
 }
 
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
 
 /* Navigation */
 .nav-menu {
@@ -75,12 +107,10 @@
     font-size: 15px;
     font-weight: 600;
     color: #1a1a1a;
-    /* Fixed dark color for visibility */
     text-decoration: none;
     transition: color 0.3s ease;
     position: relative;
     padding: 25px 0;
-    /* Increase hit area and spacing */
 }
 
 .nav-item:hover .nav-link {
@@ -91,11 +121,9 @@
     content: '';
     position: absolute;
     bottom: 20px;
-    /* Adjusted to appear just below text */
     left: 0;
     width: 0;
     height: 3px;
-    /* Slightly thicker */
     background: var(--accent-blue);
     transition: width 0.3s ease;
 }
@@ -108,7 +136,6 @@
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    /* Position right below header */
     left: 0;
     background: #ffffff;
     min-width: 240px;
@@ -131,11 +158,21 @@
     transform: translateY(0);
 }
 
+.dropdown-menu.wide {
+    flex-direction: row;
+    min-width: 500px;
+    padding: 20px;
+    gap: 30px;
+}
+
+.dropdown-col {
+    flex: 1;
+}
+
 .dropdown-col h4 {
     font-size: 13px;
     text-transform: uppercase;
     color: #666;
-    /* Specific dark gray */
     margin-bottom: 12px;
     font-weight: 700;
     letter-spacing: 0.5px;
@@ -145,7 +182,6 @@
     display: block;
     padding: 8px 20px;
     color: #333333;
-    /* Dark text for visibility */
     text-decoration: none;
     font-size: 14px;
     transition: all 0.2s ease;
@@ -160,7 +196,6 @@
     background: rgba(0, 0, 0, 0.03);
     color: var(--accent-blue);
     padding-left: 25px;
-    /* Indent effect on hover */
 }
 
 .dropdown-menu.wide .dropdown-item:hover {
@@ -192,4 +227,101 @@
 
 .contact-us-btn::after {
     display: none !important;
+}
+
+.mobile-lang-switcher {
+    display: none;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .header-actions {
+        display: none;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: #ffffff;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
+
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+
+    .nav-list {
+        flex-direction: column;
+        height: auto;
+        gap: 0;
+    }
+
+    .nav-item {
+        height: auto;
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-link {
+        padding: 15px 20px;
+        font-size: 18px;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border-top: none;
+        border-radius: 0;
+        min-width: unset;
+        padding: 0 0 10px;
+    }
+
+    .dropdown-menu.wide {
+        flex-direction: column;
+        min-width: unset;
+        padding: 0 0 10px;
+        gap: 10px;
+    }
+
+    .dropdown-col h4 {
+        text-align: center;
+    }
+
+    .dropdown-item {
+        text-align: center;
+        padding: 8px 20px;
+    }
+
+    .dropdown-menu.wide .dropdown-item {
+        padding: 8px 20px;
+    }
+
+    .mobile-lang-switcher {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .contact-us-btn {
+        margin-top: 10px;
+    }
 }

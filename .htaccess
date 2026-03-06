@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Already rewritten to dist/ — stop
+  RewriteRule ^dist/ - [L]
+
+  # Serve static files from dist/ if they exist
+  RewriteCond %{DOCUMENT_ROOT}/dist/$1 -f
+  RewriteRule ^(.*)$ dist/$1 [L]
+
+  # SPA fallback — all other requests serve dist/index.html
+  RewriteRule ^ dist/index.html [L]
+</IfModule>

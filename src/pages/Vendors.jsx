@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from '../contexts/LanguageContext';
 import AnimatedSection from '../components/AnimatedSection';
 import './Vendors.css';
 
@@ -54,12 +55,14 @@ const vendors = [
 ];
 
 const Vendors = () => {
+    const { t } = useTranslation();
+
     return (
         <div className="vendors-page">
             <div className="container">
                 <AnimatedSection className="vendors-header">
-                    <h1 className="text-gradient" data-i18n="vendors_title">Our Vendors &amp; Technology Partners</h1>
-                    <p data-i18n="vendors_subtitle">We distribute and integrate solutions from world-leading technology brands.</p>
+                    <h1 className="text-gradient">{t('vendors_title')}</h1>
+                    <p>{t('vendors_subtitle')}</p>
                 </AnimatedSection>
 
                 <div className="vendors-grid">

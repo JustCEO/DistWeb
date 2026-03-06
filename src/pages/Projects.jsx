@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from '../contexts/LanguageContext';
 import '../components/ServicesSection.css';
 import { motion } from 'framer-motion';
 
@@ -170,6 +171,8 @@ const projects = [
 ];
 
 const Projects = () => {
+    const { t } = useTranslation();
+
     return (
         <div style={{ paddingTop: '120px', paddingBottom: '80px', minHeight: '100vh', background: 'var(--bg-main)' }}>
             <div className="container">
@@ -180,9 +183,9 @@ const Projects = () => {
                     className="text-center"
                     style={{ marginBottom: '60px' }}
                 >
-                    <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>Our Projects</h1>
+                    <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>{t('projects_title')}</h1>
                     <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-secondary)', fontSize: '18px' }}>
-                        We serve major government, energy, and commercial sectors with verified high-security deployments.
+                        {t('projects_subtitle')}
                     </p>
                 </motion.div>
 

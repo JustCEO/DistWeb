@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from '../contexts/LanguageContext';
 import AnimatedSection from './AnimatedSection';
 import './ServicesSection.css';
 import biostationImg from '../assets/images/biostation3.png';
-import uundzImg from '../assets/images/uundz-handle.jpg';
 import vmsImg from '../assets/images/vms1.jpg';
 import customSoftImg from '../assets/images/Custom_Software.jpeg';
 import itInfraImg from '../assets/images/IT_Infrastructure.jpg';
@@ -40,12 +40,14 @@ const services = [
 ];
 
 const ServicesSection = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="services-section" id="solutions">
             <div className="container">
                 <AnimatedSection className="section-header">
-                    <h2 className="section-title text-gradient" data-i18n="services_title">Our Solutions</h2>
-                    <p className="section-subtitle" data-i18n="services_subtitle">Distributing global brands & delivering custom integration.</p>
+                    <h2 className="section-title text-gradient">{t('services_title')}</h2>
+                    <p className="section-subtitle">{t('services_subtitle')}</p>
                 </AnimatedSection>
 
                 <div className="services-grid">

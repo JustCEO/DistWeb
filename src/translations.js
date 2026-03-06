@@ -199,24 +199,4 @@ const translations = {
     }
 };
 
-export function applyTranslations(langCode) {
-    const strings = translations[langCode];
-    if (!strings) return;
-
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (strings[key]) {
-            el.textContent = strings[key];
-        }
-    });
-}
-
-export function getSavedLanguage() {
-    return localStorage.getItem('distechsol-lang') || 'EN';
-}
-
-export function saveLanguage(langCode) {
-    localStorage.setItem('distechsol-lang', langCode);
-}
-
 export default translations;

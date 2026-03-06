@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from '../contexts/LanguageContext';
 import AnimatedSection from '../components/AnimatedSection';
 import './Contact.css';
 
@@ -9,10 +10,9 @@ const contactItems = [
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
         ),
-        label: 'Phone',
+        i18nLabel: 'contact_phone',
         value: '+994 51 233 93 70',
-        href: 'tel:+994512339370',
-        i18nLabel: 'contact_phone'
+        href: 'tel:+994512339370'
     },
     {
         icon: (
@@ -21,10 +21,9 @@ const contactItems = [
                 <polyline points="22,6 12,13 2,6"/>
             </svg>
         ),
-        label: 'Email',
+        i18nLabel: 'contact_email',
         value: 'office@distechsol.com',
-        href: 'mailto:office@distechsol.com',
-        i18nLabel: 'contact_email'
+        href: 'mailto:office@distechsol.com'
     },
     {
         icon: (
@@ -33,11 +32,10 @@ const contactItems = [
                 <circle cx="12" cy="10" r="3"/>
             </svg>
         ),
-        label: 'Address',
+        i18nLabel: 'contact_address',
         value: 'Heydar Aliyev 183C, Baku, AZ 1029, Azerbaijan',
         href: 'https://maps.google.com/?q=Heydar+Aliyev+183C,+Baku,+AZ+1029,+Azerbaijan',
-        external: true,
-        i18nLabel: 'contact_address'
+        external: true
     },
     {
         icon: (
@@ -47,22 +45,23 @@ const contactItems = [
                 <circle cx="4" cy="4" r="2"/>
             </svg>
         ),
-        label: 'LinkedIn',
+        i18nLabel: 'contact_linkedin',
         value: 'DisTechSol',
         href: 'https://www.linkedin.com/company/distechsol',
-        external: true,
-        i18nLabel: 'contact_linkedin'
+        external: true
     }
 ];
 
 const Contact = () => {
+    const { t } = useTranslation();
+
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-main)', paddingBottom: '60px' }}>
             <div className="container">
                 <AnimatedSection className="contact-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
-                    <h1 className="text-gradient" style={{ fontSize: '48px', marginBottom: '20px' }} data-i18n="contact_title">Get In Touch</h1>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '18px', maxWidth: '600px', margin: '0 auto' }} data-i18n="contact_subtitle">
-                        Have a project in mind or questions about our solutions? Reach out to us directly — we'd love to hear from you.
+                    <h1 className="text-gradient" style={{ fontSize: '48px', marginBottom: '20px' }}>{t('contact_title')}</h1>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '18px', maxWidth: '600px', margin: '0 auto' }}>
+                        {t('contact_subtitle')}
                     </p>
                 </AnimatedSection>
 
@@ -77,7 +76,7 @@ const Contact = () => {
                             >
                                 <div className="contact-icon">{item.icon}</div>
                                 <div className="contact-details">
-                                    <span className="contact-label" data-i18n={item.i18nLabel}>{item.label}</span>
+                                    <span className="contact-label">{t(item.i18nLabel)}</span>
                                     <span className="contact-value">{item.value}</span>
                                 </div>
                             </a>

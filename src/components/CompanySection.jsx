@@ -1,15 +1,18 @@
 import React from 'react';
+import { useTranslation } from '../contexts/LanguageContext';
 import AnimatedSection from './AnimatedSection';
 import './CompanySection.css';
 
 const CompanySection = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="company-section" id="company">
             <div className="container">
                 <div className="company-content">
                     <AnimatedSection className="company-text">
-                        <h2 className="section-title text-gradient" data-i18n="company_title">About DisTechSol</h2>
-                        <h3 className="company-subtitle" data-i18n="company_subtitle">Your Partner in Security & Automation</h3>
+                        <h2 className="section-title text-gradient">{t('company_title')}</h2>
+                        <h3 className="company-subtitle">{t('company_subtitle')}</h3>
                         <div className="company-description">
                             <p>
                                 Distechsol is a premier technology integrator specializing in advanced automation and IT security.
