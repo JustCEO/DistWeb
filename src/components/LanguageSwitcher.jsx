@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { applyTranslations, getSavedLanguage, saveLanguage } from '../translations';
 import './LanguageSwitcher.css';
 
 const languages = [
@@ -20,17 +21,43 @@ const languages = [
 ];
 
 const LanguageSwitcher = () => {
+    const savedCode = getSavedLanguage();
+    const initialLang = languages.find(l => l.code === savedCode) || languages[0];
+
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedLang, setSelectedLang] = useState(languages[0]);
+    const [selectedLang, setSelectedLang] = useState(initialLang);
     const dropdownRef = useRef(null);
+
+    const applyLang = useCallback((langCode) => {
+        // Small delay to let React finish rendering DOM updates
+        requestAnimationFrame(() => {
+            applyTranslations(langCode);
+        });
+    }, []);
+
+    // Apply translations on mount and on route change (via MutationObserver)
+    useEffect(() => {
+        applyLang(selectedLang.code);
+
+        const observer = new MutationObserver(() => {
+            applyLang(selectedLang.code);
+        });
+
+        observer.observe(document.getElementById('root'), {
+            childList: true,
+            subtree: true
+        });
+
+        return () => observer.disconnect();
+    }, [selectedLang.code, applyLang]);
 
     const toggleDropdown = () => setIsOpen(!isOpen);
 
     const handleSelect = (lang) => {
         setSelectedLang(lang);
+        saveLanguage(lang.code);
         setIsOpen(false);
-        // Here you would trigger the actual language change logic (i18n)
-        console.log(`Language changed to ${lang.code}`);
+        applyLang(lang.code);
     };
 
     // Close dropdown when clicking outside
@@ -46,7 +73,7 @@ const LanguageSwitcher = () => {
 
     return (
         <div className="language-switcher" ref={dropdownRef}>
-            <button className="lang-btn" onClick={toggleDropdown}>
+            <button className="lang-btn" onClick={toggleDropdown} type="button">
                 <span className="lang-flag">{selectedLang.flag}</span>
                 <span className="lang-code">{selectedLang.code}</span>
                 <span className={`arrow ${isOpen ? 'up' : 'down'}`}>▼</span>
