@@ -11,13 +11,13 @@ const Footer = () => {
                     <Link to="/" className="footer-logo-link">
                         <img src={logo} alt="DisTechSol" />
                     </Link>
-                    <p>Innovative IT solutions for a complex world.</p>
+                    <p data-i18n="footer_tagline">Innovative IT solutions for a complex world.</p>
                 </div>
                 <div className="footer-col">
                     <h4>Company</h4>
                     <ul>
                         <li><a href="/#company">About Us</a></li>
-                        <li><a href="#">Our Team</a></li>
+                        <li><Link to="/vendors">Vendors</Link></li>
                         <li><Link to="/contacts">Contact Us</Link></li>
                     </ul>
                 </div>
@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <div className="container">
-                    <p>&copy; 2024 DisTechSol. All rights reserved.</p>
+                    <p data-i18n="footer_copyright">&copy; 2025 DisTechSol. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -1,0 +1,119 @@
+.vendors-page {
+    padding-top: 120px;
+    min-height: 100vh;
+    background: var(--bg-main);
+    padding-bottom: 80px;
+}
+
+.vendors-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.vendors-subtitle {
+    color: var(--text-secondary);
+    font-size: 18px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.vendors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.vendor-card {
+    background: #111827;
+    border: 1px solid rgba(0, 212, 255, 0.08);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.vendor-card:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 24px rgba(0, 212, 255, 0.08);
+    transform: translateY(-4px);
+}
+
+.vendor-logo-wrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.vendor-logo {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.vendor-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 81, 255, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #00d4ff;
+}
+
+.vendor-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+}
+
+.vendor-category {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #00d4ff;
+    margin-bottom: 14px;
+}
+
+.vendor-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+}
+
+@media (max-width: 968px) {
+    .vendors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vendors-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 640px) {
+    .vendors-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vendors-title {
+        font-size: 30px;
+    }
+
+    .vendor-card {
+        padding: 24px 20px;
+    }
+}

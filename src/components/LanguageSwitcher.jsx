@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { applyTranslations } from '../translations';
 import './LanguageSwitcher.css';
 
 const languages = [
@@ -19,19 +21,38 @@ const languages = [
     }
 ];
 
+const getInitialLang = () => {
+    const saved = localStorage.getItem('distech-lang');
+    if (saved) {
+        return languages.find(l => l.code === saved) || languages[0];
+    }
+    return languages[0];
+};
+
 const LanguageSwitcher = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedLang, setSelectedLang] = useState(languages[0]);
+    const [selectedLang, setSelectedLang] = useState(getInitialLang);
     const dropdownRef = useRef(null);
+    const location = useLocation();
 
-    const toggleDropdown = () => setIsOpen(!isOpen);
+    const toggleDropdown = (e) => {
+        e.stopPropagation();
+        setIsOpen(!isOpen);
+    };
 
     const handleSelect = (lang) => {
         setSelectedLang(lang);
         setIsOpen(false);
-        // Here you would trigger the actual language change logic (i18n)
-        console.log(`Language changed to ${lang.code}`);
+        localStorage.setItem('distech-lang', lang.code);
+        // Small delay to let React render new elements before translating
+        setTimeout(() => applyTranslations(lang.code), 50);
     };
+
+    // Apply translations on route change or initial load
+    useEffect(() => {
+        const timer = setTimeout(() => applyTranslations(selectedLang.code), 100);
+        return () => clearTimeout(timer);
+    }, [location.pathname, selectedLang.code]);
 
     // Close dropdown when clicking outside
     useEffect(() => {
@@ -46,7 +67,7 @@ const LanguageSwitcher = () => {
 
     return (
         <div className="language-switcher" ref={dropdownRef}>
-            <button className="lang-btn" onClick={toggleDropdown}>
+            <button className="lang-btn" onClick={toggleDropdown} type="button">
                 <span className="lang-flag">{selectedLang.flag}</span>
                 <span className="lang-code">{selectedLang.code}</span>
                 <span className={`arrow ${isOpen ? 'up' : 'down'}`}>▼</span>
