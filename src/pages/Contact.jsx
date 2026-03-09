@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
+import useSEO from '../hooks/useSEO';
 import AnimatedSection from '../components/AnimatedSection';
 import './Contact.css';
 
@@ -54,6 +55,12 @@ const contactItems = [
 
 const Contact = () => {
     const { t } = useTranslation();
+
+    useSEO({
+        title: 'Contact Us — DisTechSol Baku, Azerbaijan',
+        description: 'Contact DisTechSol for Suprema access control, Network Optix VMS, automation, CRM/ERP integration, and IT infrastructure solutions in Azerbaijan. Phone: +994 51 233 93 70. Email: office@distechsol.com.',
+        canonical: 'https://distechsol.com/contacts'
+    });
 
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-main)', paddingBottom: '60px' }}>

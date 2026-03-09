@@ -48,6 +48,19 @@
     color: var(--accent-cyan);
 }
 
+.footer-address {
+    font-style: normal;
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 16px;
+}
+
+.footer-address a {
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
 .footer-bottom {
     background: #000;
     padding: 20px 0;

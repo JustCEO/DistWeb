@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import useSEO from '../hooks/useSEO';
 import AnimatedSection from '../components/AnimatedSection';
 import biostationImg from '../assets/images/biostation3.png';
 import uundzImg from '../assets/images/uundz-handle.jpg';
@@ -11,6 +12,8 @@ const serviceDetails = {
         title: 'Physical Security & Access Systems',
         subtitle: 'Biometric & Wireless Systems',
         image: biostationImg,
+        seoTitle: 'Suprema Biometric Access Control — Physical Security Systems in Azerbaijan',
+        seoDesc: 'Suprema BioStation, FaceStation, BioEntry, CoreStation, BioStar 2. Biometric access control, fingerprint & face recognition, RFID, smart locks. Official distributor in Azerbaijan — DisTechSol.',
         description: 'A comprehensive approach to physical security, combining world-class biometrics with versatile intelligent locking systems. This unified ecosystem ensures secure, seamless, and scalable access control for any facility.',
         features: [
             'Multi-modal Authentication: Fingerprint, Face, RFID, Mobile, and QR',
@@ -50,7 +53,9 @@ const serviceDetails = {
     'video-analytics': {
         title: 'Video Surveillance & AI Analytics',
         subtitle: 'VMS & Intelligent Analytics',
-        image: biostationImg, // Placeholder
+        image: biostationImg,
+        seoTitle: 'Network Optix Nx Witness & Milestone VMS — Video Surveillance in Azerbaijan',
+        seoDesc: 'Network Optix Nx Witness, Milestone XProtect, Incoresoft AI analytics. Open-platform VMS, AI video surveillance, license plate recognition, smart city monitoring. DisTechSol — official distributor in Azerbaijan.',
         description: 'Empower your security with open-platform Video Management Systems (VMS) and advanced AI analytics. We deploy industry-leading solutions like Network Optix and Milestone, enhanced by Incoresoft\'s AI engines for city-scale monitoring and behavioral analysis.',
         features: [
             'Open Platform VMS: Seamless integration with thousands of camera models',
@@ -86,34 +91,42 @@ const serviceDetails = {
         title: 'Custom Software & Integrations',
         subtitle: 'Integration & Middleware',
         image: softwareImg,
-        description: 'Maximize your ROI by integrating security hardware with your business operations. Our dev team utilizes standard APIs, SDKs, and custom middleware to bridge security data with ERP, HR, and Time & Attendance systems.',
+        seoTitle: 'Custom Software, CRM/ERP Integration & N8N Automation — Azerbaijan',
+        seoDesc: 'Custom software development, CRM integration, ERP integration, N8N workflow automation, API development, HR/payroll middleware, visitor management systems. DisTechSol — software & automation solutions in Baku, Azerbaijan.',
+        description: 'Maximize your ROI by integrating security hardware with your business operations. We specialize in CRM and ERP integration, N8N workflow automation, and custom middleware development. Our team bridges access control data with SAP, 1C, Oracle, Bitrix24 CRM, and HR/payroll systems via RESTful APIs and SDKs.',
         features: [
+            'CRM Integration (Bitrix24, Salesforce, HubSpot)',
+            'ERP Integration (SAP, 1C, Oracle, Microsoft Dynamics)',
+            'N8N Workflow Automation & Process Orchestration',
             'Access Control API Implementation (RESTful)',
-            'Device SDK Integration',
+            'Device SDK Integration (Suprema, Network Optix)',
             'Custom Middleware for HR/Payroll Sync',
             'Automated User Onboarding/Offboarding',
             'Custom Reporting & Analytics Dashboards',
-            'Mustering & Emergency Evacuation Systems',
             'Visitor Management System Integrations',
             'Legacy System Modernization'
         ],
         services: [
             {
-                name: 'HR & ERP Integration',
-                description: 'Auto-sync employee data from SAP, Workday, or Oracle directly to access control panels.'
+                name: 'CRM & ERP Integration',
+                description: 'Connect Bitrix24, Salesforce, SAP, 1C, and Oracle ERP directly to access control and security systems. Auto-sync employee data, departments, and access rights with zero manual intervention.'
             },
             {
-                name: 'Custom T&A Rules',
-                description: 'Develop complex time and attendance logic tailored to unique shift patterns and labor laws.'
+                name: 'N8N Workflow Automation',
+                description: 'Design and deploy N8N-based automation workflows connecting security events to business processes — from automated alerts and report generation to multi-system orchestration without coding.'
+            },
+            {
+                name: 'Custom T&A & HR Rules',
+                description: 'Develop complex time and attendance logic tailored to unique shift patterns, labor laws, and overtime policies. Seamless sync with payroll and HR platforms.'
             },
             {
                 name: 'Mobile App Development',
-                description: 'Custom mobile interfaces for security guards, facility managers, or employees.'
+                description: 'Custom mobile interfaces for security guards, facility managers, or employees with real-time access to security events and management tools.'
             }
         ],
         benefits: [
-            'Automation: Eliminate manual data entry and reduce errors',
-            'Real-Time Sync: Changes in HR are immediately reflected in physical access rights',
+            'N8N Automation: Connect 400+ apps and automate complex workflows without code',
+            'CRM/ERP Sync: Real-time data exchange between business and security systems',
             'Custom Fit: Solutions tailored exactly to your operational workflows',
             'Data Insights: Unlock value from your security data for business intelligence'
         ]
@@ -122,6 +135,8 @@ const serviceDetails = {
         title: 'IT Infrastructure',
         subtitle: 'Enterprise Networking',
         image: networkImg,
+        seoTitle: 'IT Infrastructure — Cisco, Peplink, Enterprise Networking in Azerbaijan',
+        seoDesc: 'Enterprise IT infrastructure: Cisco networking, Peplink SD-WAN, firewalls, Wi-Fi, server virtualization, structured cabling, disaster recovery. DisTechSol — IT solutions in Baku, Azerbaijan.',
         description: 'The backbone of your digital operations. We design and deploy robust, secure, and high-performance network infrastructures that ensure 24/7 business continuity.',
         features: [
             'Network Architecture & Design',
@@ -159,6 +174,12 @@ const serviceDetails = {
 const ServiceDetail = () => {
     const { serviceId } = useParams();
     const service = serviceDetails[serviceId];
+
+    useSEO({
+        title: service?.seoTitle || service?.title || 'Service',
+        description: service?.seoDesc || service?.description || '',
+        canonical: `https://distechsol.com/service/${serviceId}`
+    });
 
     // Scroll to top when page loads
     useEffect(() => {

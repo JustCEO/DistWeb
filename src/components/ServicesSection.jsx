@@ -24,9 +24,9 @@ const services = [
         link: "/service/video-analytics"
     },
     {
-        title: "Custom Software & Integrations",
-        subtitle: "Integration & Middleware",
-        desc: "Bridge the gap between hardware and business logic. Custom integrations using standard APIs and SDKs to connect security systems with ERP, HR, and 3rd party platforms.",
+        title: "Custom Software & Automation",
+        subtitle: "CRM / ERP / N8N Integration",
+        desc: "CRM and ERP integration, N8N workflow automation, and custom middleware. Connect security systems with SAP, Bitrix24, 1C, and automate business processes end-to-end.",
         icon: customSoftImg,
         link: "/service/software-development"
     },

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
+import useSEO from '../hooks/useSEO';
 import AnimatedSection from '../components/AnimatedSection';
 import './Vendors.css';
 
@@ -57,6 +58,12 @@ const vendors = [
 const Vendors = () => {
     const { t } = useTranslation();
 
+    useSEO({
+        title: 'Vendors — Suprema, Network Optix, Milestone, Cisco, Peplink',
+        description: 'DisTechSol technology partners: Suprema biometric access control, Network Optix Nx Witness VMS, Milestone XProtect, Incoresoft AI analytics, Cisco networking, Peplink SD-WAN, HP, Cambium Networks. Official distributor in Azerbaijan.',
+        canonical: 'https://distechsol.com/vendors'
+    });
+
     return (
         <div className="vendors-page">
             <div className="container">
@@ -71,7 +78,7 @@ const Vendors = () => {
                             <div className="vendor-logo-wrapper">
                                 <img
                                     src={vendor.logo}
-                                    alt={`${vendor.name} logo`}
+                                    alt={`${vendor.name} — ${vendor.category} partner of DisTechSol Azerbaijan`}
                                     onError={(e) => {
                                         e.target.style.display = 'none';
                                         e.target.parentElement.classList.add('no-logo');
@@ -87,6 +94,28 @@ const Vendors = () => {
                         </AnimatedSection>
                     ))}
                 </div>
+
+                <AnimatedSection className="vendors-seo-section" delay={0.3}>
+                    <div style={{
+                        marginTop: '80px',
+                        padding: '40px',
+                        background: 'var(--bg-card)',
+                        borderRadius: '16px',
+                        border: '1px solid rgba(255,255,255,0.05)'
+                    }}>
+                        <h2 style={{ color: 'var(--text-primary)', marginBottom: '20px', fontSize: '24px' }}>
+                            Official Technology Distributor in Azerbaijan & UAE
+                        </h2>
+                        <p style={{ color: 'var(--text-secondary)', lineHeight: '1.8', fontSize: '15px' }}>
+                            DisTechSol is the official distributor and system integrator for leading global technology brands in Azerbaijan and the UAE.
+                            We provide end-to-end solutions from <strong>Suprema</strong> biometric access control (BioStation 3, FaceStation F2, BioStar 2),
+                            <strong> Network Optix</strong> Nx Witness and <strong>Milestone</strong> XProtect video management systems,
+                            to <strong>Cisco</strong> enterprise networking and <strong>Peplink</strong> SD-WAN solutions.
+                            Our expertise also covers <strong>CRM and ERP integration</strong>, <strong>N8N workflow automation</strong>,
+                            and custom software development for security and business process automation.
+                        </p>
+                    </div>
+                </AnimatedSection>
             </div>
         </div>
     );

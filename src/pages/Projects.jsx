@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from '../contexts/LanguageContext';
+import useSEO from '../hooks/useSEO';
 import '../components/ServicesSection.css';
 import { motion } from 'framer-motion';
 
@@ -172,6 +173,12 @@ const projects = [
 
 const Projects = () => {
     const { t } = useTranslation();
+
+    useSEO({
+        title: 'Projects — Suprema Access Control Deployments in Azerbaijan',
+        description: 'DisTechSol project portfolio: Suprema biometric access control at SOCAR, Supreme Court of Azerbaijan, Ministry of Taxes, ATB Bank, Lukoil Shahdeniz, Baku Steel Company. 50+ clients, 100+ device deployments.',
+        canonical: 'https://distechsol.com/projects'
+    });
 
     return (
         <div style={{ paddingTop: '120px', paddingBottom: '80px', minHeight: '100vh', background: 'var(--bg-main)' }}>
