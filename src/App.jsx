@@ -9,6 +9,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Vendors from './pages/Vendors';
 import ServiceDetail from './pages/ServiceDetail';
+import Vendors from './pages/Vendors';
 import './index.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/vendors" element={<Vendors />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/service/:serviceId" element={<ServiceDetail />} />
+          <Route path="/vendors" element={<Vendors />} />
           <Route path="/contacts" element={<Contact />} />
         </Routes>
         <Footer />

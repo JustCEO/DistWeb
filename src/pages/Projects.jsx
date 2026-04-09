@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import '../components/ServicesSection.css';
 import { motion } from 'framer-motion';
 
@@ -172,6 +173,11 @@ const projects = [
 const Projects = () => {
     return (
         <div style={{ paddingTop: '120px', paddingBottom: '80px', minHeight: '100vh', background: 'var(--bg-main)' }}>
+            <Helmet>
+                <title>Projects – Suprema Deployments in Azerbaijan | DisTechSol</title>
+                <meta name="description" content="DisTechSol project portfolio: Suprema biometric access control deployments for SOCAR, government ministries, banks, and energy companies in Azerbaijan. BioStation 3, FaceStation F2, BioStar 2." />
+                <link rel="canonical" href="https://distechsol.com/projects" />
+            </Helmet>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

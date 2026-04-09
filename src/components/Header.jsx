@@ -6,23 +6,20 @@ import LanguageSwitcher from './LanguageSwitcher';
 
 const Header = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
-            const offset = window.scrollY;
-            if (offset > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
+            setScrolled(window.scrollY > 50);
         };
-
         window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]);
 
     return (
         <header className={`header ${scrolled ? 'scrolled' : ''}`}>
@@ -31,7 +28,11 @@ const Header = () => {
                     <img src={logo} alt="DisTechSol" />
                 </Link>
 
-                <nav className="nav-menu">
+                <button className="mobile-menu-toggle" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+                    <span className={`hamburger ${mobileMenuOpen ? 'open' : ''}`}></span>
+                </button>
+
+                <nav className={`nav-menu ${mobileMenuOpen ? 'mobile-open' : ''}`}>
                     <ul className="nav-list">
                         <li className="nav-item">
                             <span className="nav-link" data-i18n="nav_company">Company</span>
@@ -47,19 +48,19 @@ const Header = () => {
                             <Link to="/solutions" className="nav-link" data-i18n="nav_solutions">Solutions</Link>
                             <div className="dropdown-menu wide">
                                 <div className="dropdown-col">
-                                    <h4 data-i18n="nav_physical_security">Physical Security</h4>
-                                    <Link to="/service/physical-security" className="dropdown-item" data-i18n="nav_biometric">Biometric Access Control</Link>
-                                    <Link to="/service/physical-security" className="dropdown-item" data-i18n="nav_locking">Intelligent Locking</Link>
+                                    <h4>Physical Security</h4>
+                                    <Link to="/service/physical-security" className="dropdown-item">Biometric Access Control</Link>
+                                    <Link to="/service/physical-security" className="dropdown-item">Intelligent Locking</Link>
                                 </div>
                                 <div className="dropdown-col">
-                                    <h4 data-i18n="nav_digital_security">Digital Security &amp; AI</h4>
-                                    <Link to="/service/video-analytics" className="dropdown-item" data-i18n="nav_vms">Video Surveillance (VMS)</Link>
-                                    <Link to="/service/video-analytics" className="dropdown-item" data-i18n="nav_ai">AI Analytics</Link>
+                                    <h4>Digital Security & AI</h4>
+                                    <Link to="/service/video-analytics" className="dropdown-item">Video Surveillance (VMS)</Link>
+                                    <Link to="/service/video-analytics" className="dropdown-item">AI Analytics</Link>
                                 </div>
                                 <div className="dropdown-col">
-                                    <h4 data-i18n="nav_tech_services">Tech Services</h4>
-                                    <Link to="/service/software-development" className="dropdown-item" data-i18n="nav_software">Software Development</Link>
-                                    <Link to="/service/it-infrastructure" className="dropdown-item" data-i18n="nav_it_infra">IT Infrastructure</Link>
+                                    <h4>Tech Services</h4>
+                                    <Link to="/service/software-development" className="dropdown-item">Software Development</Link>
+                                    <Link to="/service/it-infrastructure" className="dropdown-item">IT Infrastructure</Link>
                                 </div>
                             </div>
                         </li>
@@ -68,7 +69,7 @@ const Header = () => {
 
                         <li className="nav-item"><Link to="/projects" className="nav-link" data-i18n="nav_projects">Projects</Link></li>
 
-                        <li className="nav-item"><Link to="/contacts" className="nav-link contact-us-btn" data-i18n="nav_contact">Contact Us</Link></li>
+                        <li className="nav-item contact-nav-item"><Link to="/contacts" className="nav-link contact-nav-link" data-i18n="nav_contact">Contact Us</Link></li>
                     </ul>
                 </nav>
 

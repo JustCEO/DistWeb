@@ -16,9 +16,9 @@ const Footer = () => {
                 <div className="footer-col">
                     <h4 data-i18n="footer_company">Company</h4>
                     <ul>
-                        <li><a href="/#company" data-i18n="nav_about">About Us</a></li>
-                        <li><a href="#" data-i18n="footer_team">Our Team</a></li>
-                        <li><Link to="/contacts" data-i18n="nav_contact">Contact Us</Link></li>
+                        <li><a href="/#company">About Us</a></li>
+                        <li><Link to="/vendors">Vendors</Link></li>
+                        <li><Link to="/contacts">Contact Us</Link></li>
                     </ul>
                 </div>
                 <div className="footer-col">
@@ -40,7 +40,7 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <div className="container">
-                    <p>&copy; 2025 DisTechSol. <span data-i18n="footer_rights">All rights reserved.</span></p>
+                    <p data-i18n="footer_copyright">&copy; 2025 DisTechSol. All rights reserved.</p>
                 </div>
             </div>
         </footer>

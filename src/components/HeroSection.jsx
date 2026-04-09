@@ -39,15 +39,25 @@ const HeroSection = () => {
                 </AnimatedSection>
 
                 <div className="hero-stats block-reveal delay-3">
-                    {stats.map((stat, index) => (
-                        <React.Fragment key={index}>
-                            {index > 0 && <span className="stat-divider"></span>}
-                            <div className="hero-stat-item">
-                                <span className="hero-stat-number">{stat.number}</span>
-                                <span className="hero-stat-label" data-i18n={stat.i18nLabel}>{stat.label}</span>
-                            </div>
-                        </React.Fragment>
-                    ))}
+                    <div className="hero-stat">
+                        <span className="hero-stat-number">50+</span>
+                        <span className="hero-stat-label" data-i18n="stat_clients">Clients</span>
+                    </div>
+                    <span className="hero-stat-divider"></span>
+                    <div className="hero-stat">
+                        <span className="hero-stat-number">5</span>
+                        <span className="hero-stat-label" data-i18n="stat_years">Years on the Market</span>
+                    </div>
+                    <span className="hero-stat-divider"></span>
+                    <div className="hero-stat">
+                        <span className="hero-stat-number">2</span>
+                        <span className="hero-stat-label" data-i18n="stat_countries">Countries</span>
+                    </div>
+                    <span className="hero-stat-divider"></span>
+                    <div className="hero-stat">
+                        <span className="hero-stat-number">20+</span>
+                        <span className="hero-stat-label" data-i18n="stat_vendors">Vendor Partners</span>
+                    </div>
                 </div>
             </div>
         </section>
