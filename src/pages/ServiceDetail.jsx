@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
 import biostationImg from '../assets/images/biostation3.png';
@@ -180,6 +181,11 @@ const ServiceDetail = () => {
 
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-main)', paddingBottom: '60px' }}>
+            <Helmet>
+                <title>{service.title} | DisTechSol Azerbaijan</title>
+                <meta name="description" content={`${service.description.substring(0, 155)}...`} />
+                <link rel="canonical" href={`https://distechsol.com/service/${serviceId}`} />
+            </Helmet>
             <div className="container">
                 {/* Header */}
                 <AnimatedSection style={{ textAlign: 'center', marginBottom: '60px' }}>

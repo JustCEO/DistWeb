@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import AnimatedSection from '../components/AnimatedSection';
 
 const contactItems = [
@@ -53,6 +54,11 @@ const contactItems = [
 const Contact = () => {
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-main)', paddingBottom: '60px' }}>
+            <Helmet>
+                <title>Contact DisTechSol – Suprema Distributor Baku, Azerbaijan</title>
+                <meta name="description" content="Contact DisTechSol in Baku, Azerbaijan. Phone: +994 51 233 93 70, Email: office@distechsol.com. Official Suprema distributor, security and IT solutions provider." />
+                <link rel="canonical" href="https://distechsol.com/contacts" />
+            </Helmet>
             <div className="container">
                 <AnimatedSection className="contact-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
                     <h1 className="text-gradient" style={{ fontSize: '48px', marginBottom: '20px' }} data-i18n="contact_title">Get In Touch</h1>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import AnimatedSection from '../components/AnimatedSection';
 import './Vendors.css';
 
@@ -56,6 +57,11 @@ const vendors = [
 const Vendors = () => {
     return (
         <div className="vendors-page">
+            <Helmet>
+                <title>Our Vendors – Suprema, Cisco, Milestone, HP | DisTechSol Azerbaijan</title>
+                <meta name="description" content="DisTechSol partners with Suprema, Cisco, Milestone Systems, Network Optix, HP, Peplink, Cambium Networks, and Incoresoft. Official distributor of biometric and security technology in Azerbaijan." />
+                <link rel="canonical" href="https://distechsol.com/vendors" />
+            </Helmet>
             <div className="container">
                 <AnimatedSection style={{ textAlign: 'center', marginBottom: '60px' }}>
                     <h1 className="text-gradient vendors-title" data-i18n="vendors_title">Our Vendors & Technology Partners</h1>
