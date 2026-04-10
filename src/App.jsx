@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import PartnersCarousel from './components/PartnersCarousel';
 import Home from './pages/Home';
 import Solutions from './pages/Solutions';
 import Projects from './pages/Projects';

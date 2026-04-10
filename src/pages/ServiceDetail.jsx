@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams, Link } from 'react-router-dom';
 import AnimatedSection from '../components/AnimatedSection';
 import biostationImg from '../assets/images/biostation3.png';
@@ -51,7 +52,7 @@ const serviceDetails = {
         title: 'Video Surveillance & AI Analytics',
         subtitle: 'VMS & Intelligent Analytics',
         image: biostationImg, // Placeholder
-        description: 'Empower your security with open-platform Video Management Systems (VMS) and advanced AI analytics. We deploy industry-leading solutions like Network Optix and Milestone, enhanced by Incoresoft\'s AI engines for city-scale monitoring and behavioral analysis.',
+        description: 'Empower your security with open-platform Video Management Systems (VMS) and advanced AI analytics. We deploy industry-leading solutions like Network Optix and March Networks, enhanced by Incoresoft\'s AI engines for city-scale monitoring and behavioral analysis.',
         features: [
             'Open Platform VMS: Seamless integration with thousands of camera models',
             'AI Object Detection: Differentiates humans, vehicles, and objects',
@@ -67,8 +68,8 @@ const serviceDetails = {
                 description: 'A lightning-fast, lightweight, and user-friendly VMS designed for instant usability and deep developer integration.'
             },
             {
-                name: 'Milestone Systems',
-                description: 'The global standard for open-platform IP video management software (XProtect), offering limitless integration possibilities.'
+                name: 'March Networks',
+                description: 'Enterprise-grade video surveillance platform trusted by banks, transportation, and retail for reliable, scalable multi-site deployments.'
             },
             {
                 name: 'Incoresoft',
@@ -135,16 +136,16 @@ const serviceDetails = {
         ],
         partners: [
             {
-                name: 'Cisco / Meraki',
-                description: 'Cloud-managed IT and enterprise networking solutions.'
-            },
-            {
                 name: 'Peplink',
-                description: 'Unbreakable connectivity with SD-WAN and 5G/LTE load balancing.'
+                description: 'Unbreakable connectivity with SD-WAN and 5G/LTE load balancing for mission-critical sites.'
             },
             {
-                name: 'Ubiquiti UniFi',
-                description: 'Scalable and cost-effective networking for SMBs and campuses.'
+                name: 'DELL Technologies',
+                description: 'Enterprise servers, storage, and compute infrastructure for data centers and virtualization.'
+            },
+            {
+                name: 'SAMM Fotaş',
+                description: 'Professional structured cabling, fiber optic, and passive network infrastructure solutions.'
             }
         ],
         benefits: [
@@ -180,6 +181,11 @@ const ServiceDetail = () => {
 
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-main)', paddingBottom: '60px' }}>
+            <Helmet>
+                <title>{service.title} | DisTechSol Azerbaijan</title>
+                <meta name="description" content={`${service.description.substring(0, 155)}...`} />
+                <link rel="canonical" href={`https://distechsol.com/service/${serviceId}`} />
+            </Helmet>
             <div className="container">
                 {/* Header */}
                 <AnimatedSection style={{ textAlign: 'center', marginBottom: '60px' }}>

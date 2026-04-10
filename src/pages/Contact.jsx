@@ -1,6 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import AnimatedSection from '../components/AnimatedSection';
-import './Contact.css';
 
 const contactItems = [
     {
@@ -12,7 +12,6 @@ const contactItems = [
         label: 'Phone',
         value: '+994 51 233 93 70',
         href: 'tel:+994512339370',
-        i18nLabel: 'contact_phone'
     },
     {
         icon: (
@@ -24,7 +23,6 @@ const contactItems = [
         label: 'Email',
         value: 'office@distechsol.com',
         href: 'mailto:office@distechsol.com',
-        i18nLabel: 'contact_email'
     },
     {
         icon: (
@@ -37,7 +35,6 @@ const contactItems = [
         value: 'Heydar Aliyev 183C, Baku, AZ 1029, Azerbaijan',
         href: 'https://maps.google.com/?q=Heydar+Aliyev+183C,+Baku,+AZ+1029,+Azerbaijan',
         external: true,
-        i18nLabel: 'contact_address'
     },
     {
         icon: (
@@ -51,34 +48,92 @@ const contactItems = [
         value: 'DisTechSol',
         href: 'https://www.linkedin.com/company/distechsol',
         external: true,
-        i18nLabel: 'contact_linkedin'
-    }
+    },
 ];
 
 const Contact = () => {
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-main)', paddingBottom: '60px' }}>
+            <Helmet>
+                <title>Contact DisTechSol – Suprema Distributor Baku, Azerbaijan</title>
+                <meta name="description" content="Contact DisTechSol in Baku, Azerbaijan. Phone: +994 51 233 93 70, Email: office@distechsol.com. Official Suprema distributor, security and IT solutions provider." />
+                <link rel="canonical" href="https://distechsol.com/contacts" />
+            </Helmet>
             <div className="container">
                 <AnimatedSection className="contact-header" style={{ textAlign: 'center', marginBottom: '60px' }}>
                     <h1 className="text-gradient" style={{ fontSize: '48px', marginBottom: '20px' }} data-i18n="contact_title">Get In Touch</h1>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '18px', maxWidth: '600px', margin: '0 auto' }} data-i18n="contact_subtitle">
-                        Have a project in mind or questions about our solutions? Reach out to us directly — we'd love to hear from you.
+                        Have a project in mind or questions about our solutions? Reach out to us through any of the channels below.
                     </p>
                 </AnimatedSection>
 
-                <AnimatedSection className="contact-info-wrapper">
-                    <div className="contact-info-grid">
+                <AnimatedSection>
+                    <div style={{
+                        maxWidth: '700px',
+                        margin: '0 auto',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '24px',
+                    }}>
                         {contactItems.map((item, index) => (
                             <a
                                 key={index}
                                 href={item.href}
-                                className="contact-info-card"
-                                {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                                target={item.external ? '_blank' : undefined}
+                                rel={item.external ? 'noopener noreferrer' : undefined}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '20px',
+                                    padding: '24px 28px',
+                                    background: 'rgba(255, 255, 255, 0.05)',
+                                    border: '1px solid rgba(0, 212, 255, 0.1)',
+                                    borderRadius: '12px',
+                                    textDecoration: 'none',
+                                    transition: 'all 0.3s ease',
+                                    cursor: 'pointer',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.3)';
+                                    e.currentTarget.style.boxShadow = '0 0 20px rgba(0, 212, 255, 0.1)';
+                                    e.currentTarget.style.transform = 'translateY(-2px)';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.borderColor = 'rgba(0, 212, 255, 0.1)';
+                                    e.currentTarget.style.boxShadow = 'none';
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                }}
                             >
-                                <div className="contact-icon">{item.icon}</div>
-                                <div className="contact-details">
-                                    <span className="contact-label" data-i18n={item.i18nLabel}>{item.label}</span>
-                                    <span className="contact-value">{item.value}</span>
+                                <div style={{
+                                    flexShrink: 0,
+                                    width: '52px',
+                                    height: '52px',
+                                    borderRadius: '12px',
+                                    background: 'rgba(0, 212, 255, 0.1)',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                }}>
+                                    {item.icon}
+                                </div>
+                                <div>
+                                    <div style={{
+                                        fontSize: '12px',
+                                        fontWeight: 600,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '1px',
+                                        color: '#00d4ff',
+                                        marginBottom: '4px',
+                                    }}>
+                                        {item.label}
+                                    </div>
+                                    <div style={{
+                                        fontSize: '17px',
+                                        color: '#ffffff',
+                                        fontWeight: 500,
+                                    }}>
+                                        {item.value}
+                                    </div>
                                 </div>
                             </a>
                         ))}

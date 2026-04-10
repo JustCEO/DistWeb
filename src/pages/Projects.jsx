@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import '../components/ServicesSection.css';
 import { motion } from 'framer-motion';
 
@@ -139,21 +140,6 @@ const projects = [
         tech: "Suprema Facial Recognition, BioStar 2"
     },
     {
-        client: "Baku Steel Company",
-        category: "Manufacturing",
-        system: "Compact Biometric Layout",
-        device_count: "Compact Setup",
-        desc: "Deployed a compact yet secure biometric access control and time attendance solution for Baku Steel Company using Suprema technology. The system provided streamlined access control with accurate attendance records for plant personnel.",
-        details: [
-            "2 Suprema BioStation 3 facial recognition terminals",
-            "BioStar 2 platform with configured access zones",
-            "Time & attendance tracking for shift-based workers",
-            "Secure authentication at sensitive production areas",
-            "Full setup and technical training"
-        ],
-        tech: "BioStation 3, BioStar 2"
-    },
-    {
         client: "Cinema+",
         category: "Entertainment",
         system: "Staff Management System",
@@ -172,6 +158,11 @@ const projects = [
 const Projects = () => {
     return (
         <div style={{ paddingTop: '120px', paddingBottom: '80px', minHeight: '100vh', background: 'var(--bg-main)' }}>
+            <Helmet>
+                <title>Success History – Suprema Deployments in Azerbaijan | DisTechSol</title>
+                <meta name="description" content="DisTechSol success history: Suprema biometric access control deployments for SOCAR, government ministries, banks, and energy companies in Azerbaijan. BioStation 3, FaceStation F2, BioStar 2." />
+                <link rel="canonical" href="https://distechsol.com/projects" />
+            </Helmet>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -180,9 +171,9 @@ const Projects = () => {
                     className="text-center"
                     style={{ marginBottom: '60px' }}
                 >
-                    <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>Our Projects</h1>
+                    <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>Our Success History</h1>
                     <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-secondary)', fontSize: '18px' }}>
-                        We serve major government, energy, and commercial sectors with verified high-security deployments.
+                        Proven deployments across government, energy, banking, and commercial sectors in Azerbaijan and the region.
                     </p>
                 </motion.div>
 

@@ -19,7 +19,7 @@ const services = [
     {
         title: "Video Surveillance & AI",
         subtitle: "VMS & Intelligent Analytics",
-        desc: "Open-platform video management and AI analytics. Featuring Network Optix, Milestone, and Incoresoft for proactive threat detection, behavioral analysis, and city-scale monitoring.",
+        desc: "Open-platform video management and AI analytics. Featuring Network Optix, March Networks, and Incoresoft for proactive threat detection, behavioral analysis, and city-scale monitoring.",
         icon: vmsImg,
         link: "/service/video-analytics"
     },
