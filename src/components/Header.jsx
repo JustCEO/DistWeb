@@ -48,26 +48,28 @@ const Header = () => {
                             <Link to="/solutions" className="nav-link" data-i18n="nav_solutions">Solutions</Link>
                             <div className="dropdown-menu wide">
                                 <div className="dropdown-col">
-                                    <h4>Physical Security</h4>
-                                    <Link to="/service/physical-security" className="dropdown-item">Biometric Access Control</Link>
-                                    <Link to="/service/physical-security" className="dropdown-item">Intelligent Locking</Link>
+                                    <h4>Public Sector</h4>
+                                    <Link to="/solutions#government" className="dropdown-item">Government & Public Sector</Link>
+                                    <Link to="/solutions#healthcare" className="dropdown-item">Healthcare</Link>
+                                    <Link to="/solutions#energy" className="dropdown-item">Energy, Oil & Gas</Link>
                                 </div>
                                 <div className="dropdown-col">
-                                    <h4>Digital Security & AI</h4>
-                                    <Link to="/service/video-analytics" className="dropdown-item">Video Surveillance (VMS)</Link>
-                                    <Link to="/service/video-analytics" className="dropdown-item">AI Analytics</Link>
+                                    <h4>Commercial</h4>
+                                    <Link to="/solutions#banking" className="dropdown-item">Banking & Finance</Link>
+                                    <Link to="/solutions#retail-hospitality" className="dropdown-item">Retail & Hospitality</Link>
+                                    <Link to="/solutions#corporate" className="dropdown-item">Corporate & Enterprise</Link>
                                 </div>
                                 <div className="dropdown-col">
-                                    <h4>Tech Services</h4>
-                                    <Link to="/service/software-development" className="dropdown-item">Software Solutions</Link>
-                                    <Link to="/service/it-infrastructure" className="dropdown-item">IT Infrastructure</Link>
+                                    <h4>Operations</h4>
+                                    <Link to="/solutions#industrial" className="dropdown-item">Industrial & Manufacturing</Link>
+                                    <Link to="/solutions#logistics" className="dropdown-item">Logistics & Transportation</Link>
                                 </div>
                             </div>
                         </li>
 
                         <li className="nav-item"><Link to="/vendors" className="nav-link" data-i18n="nav_vendors">Vendors</Link></li>
 
-                        <li className="nav-item"><Link to="/projects" className="nav-link" data-i18n="nav_projects">Projects</Link></li>
+                        <li className="nav-item"><Link to="/projects" className="nav-link" data-i18n="nav_projects">Success History</Link></li>
 
                         <li className="nav-item contact-nav-item"><Link to="/contacts" className="nav-link contact-nav-link" data-i18n="nav_contact">Contact Us</Link></li>
                     </ul>

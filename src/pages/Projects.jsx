@@ -159,8 +159,8 @@ const Projects = () => {
     return (
         <div style={{ paddingTop: '120px', paddingBottom: '80px', minHeight: '100vh', background: 'var(--bg-main)' }}>
             <Helmet>
-                <title>Projects – Suprema Deployments in Azerbaijan | DisTechSol</title>
-                <meta name="description" content="DisTechSol project portfolio: Suprema biometric access control deployments for SOCAR, government ministries, banks, and energy companies in Azerbaijan. BioStation 3, FaceStation F2, BioStar 2." />
+                <title>Success History – Suprema Deployments in Azerbaijan | DisTechSol</title>
+                <meta name="description" content="DisTechSol success history: Suprema biometric access control deployments for SOCAR, government ministries, banks, and energy companies in Azerbaijan. BioStation 3, FaceStation F2, BioStar 2." />
                 <link rel="canonical" href="https://distechsol.com/projects" />
             </Helmet>
             <div className="container">
@@ -171,9 +171,9 @@ const Projects = () => {
                     className="text-center"
                     style={{ marginBottom: '60px' }}
                 >
-                    <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>Our Projects</h1>
+                    <h1 style={{ fontSize: '48px', marginBottom: '20px' }}>Our Success History</h1>
                     <p style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--text-secondary)', fontSize: '18px' }}>
-                        We serve major government, energy, and commercial sectors with verified high-security deployments.
+                        Proven deployments across government, energy, banking, and commercial sectors in Azerbaijan and the region.
                     </p>
                 </motion.div>
 

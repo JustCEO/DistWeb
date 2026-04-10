@@ -5,6 +5,11 @@
     padding-bottom: 80px;
 }
 
+.vendors-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
 .vendors-title {
     font-size: 48px;
     margin-bottom: 20px;
@@ -13,8 +18,39 @@
 .vendors-subtitle {
     color: var(--text-secondary);
     font-size: 18px;
-    max-width: 600px;
+    max-width: 720px;
     margin: 0 auto;
+}
+
+.vendor-category-block {
+    margin-top: 72px;
+}
+
+.vendor-category-block:first-of-type {
+    margin-top: 0;
+}
+
+.vendor-category-header {
+    text-align: left;
+    margin-bottom: 28px;
+    padding-left: 4px;
+    border-left: 3px solid var(--accent-cyan);
+    padding: 4px 0 4px 20px;
+}
+
+.vendor-category-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.vendor-category-description {
+    color: var(--text-secondary);
+    font-size: 15px;
+    max-width: 640px;
+    margin: 0;
 }
 
 .vendors-grid {

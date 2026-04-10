@@ -9,8 +9,8 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>DisTechSol – Suprema Distributor in Azerbaijan | Security & IT Solutions Baku</title>
-                <meta name="description" content="DisTechSol is the official Suprema distributor in Azerbaijan. We provide biometric access control, video surveillance (Nx, Milestone), Cisco networking, IT infrastructure, and custom software development in Baku." />
+                <title>DisTechSol – Suprema, Network Optix, Peplink Distributor Azerbaijan | Security, AI & IT Baku</title>
+                <meta name="description" content="DisTechSol is the official distributor of Suprema, Network Optix, March Networks, Incoresoft, Peplink, SAMM Fotaş, DELL, Claude AI and n8n in Azerbaijan. Biometric access control, AI video analytics, SD-WAN networking, and enterprise automation in Baku." />
                 <link rel="canonical" href="https://distechsol.com/" />
             </Helmet>
             <HeroSection />
