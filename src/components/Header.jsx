@@ -59,7 +59,7 @@ const Header = () => {
                                 </div>
                                 <div className="dropdown-col">
                                     <h4>Tech Services</h4>
-                                    <Link to="/service/software-development" className="dropdown-item">Software Development</Link>
+                                    <Link to="/service/software-development" className="dropdown-item">Software Solutions</Link>
                                     <Link to="/service/it-infrastructure" className="dropdown-item">IT Infrastructure</Link>
                                 </div>
                             </div>

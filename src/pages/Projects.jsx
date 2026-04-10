@@ -140,21 +140,6 @@ const projects = [
         tech: "Suprema Facial Recognition, BioStar 2"
     },
     {
-        client: "Baku Steel Company",
-        category: "Manufacturing",
-        system: "Compact Biometric Layout",
-        device_count: "Compact Setup",
-        desc: "Deployed a compact yet secure biometric access control and time attendance solution for Baku Steel Company using Suprema technology. The system provided streamlined access control with accurate attendance records for plant personnel.",
-        details: [
-            "2 Suprema BioStation 3 facial recognition terminals",
-            "BioStar 2 platform with configured access zones",
-            "Time & attendance tracking for shift-based workers",
-            "Secure authentication at sensitive production areas",
-            "Full setup and technical training"
-        ],
-        tech: "BioStation 3, BioStar 2"
-    },
-    {
         client: "Cinema+",
         category: "Entertainment",
         system: "Staff Management System",
