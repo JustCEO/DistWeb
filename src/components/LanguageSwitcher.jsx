@@ -30,9 +30,6 @@ const getInitialLang = () => {
 };
 
 const LanguageSwitcher = () => {
-    const savedCode = getSavedLanguage();
-    const initialLang = languages.find(l => l.code === savedCode) || languages[0];
-
     const [isOpen, setIsOpen] = useState(false);
     const [selectedLang, setSelectedLang] = useState(getInitialLang);
     const dropdownRef = useRef(null);
@@ -45,7 +42,6 @@ const LanguageSwitcher = () => {
 
     const handleSelect = (lang) => {
         setSelectedLang(lang);
-        saveLanguage(lang.code);
         setIsOpen(false);
         localStorage.setItem('distech-lang', lang.code);
         // Small delay to let React render new elements before translating
